@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<style>
+		body{background: #000;}
+		#btn{font-size: 80px;color: #fff;text-align: center;cursor: pointer;}
+		#con{font-size: 100px;color: red;text-align: center;margin-top: 100px;}
+	</style>
+</head>
+<body>
+	<div id="btn">Start</div>
+	<div id="con">点名即将开始</div>
+	<script>
+	var btn=document.getElementById('btn');
+	var con=document.getElementById('con');
+	var timer=null;
+	var na=["姬伟杰","白鹤","王书迪","袁高超","孙晓","朱明浩","常智","崔毅","许梦凡","张瑾钰","赵洁","田小白","李小萌","侯建","郭潘","方淑娴","邓艳文","卢震","二月红","张佛爷","陆雪琪","张小凡","碧瑶","曾书书","尹新月"]
+	var flag=0;
+	btn.onclick=function(){
+		if (flag==0) {
+			btn.innerText="Stop";
+			timer=setInterval(function(){
+				var x=Math.floor(Math.random()*25);
+				con.innerText=na[x];
+			},10)
+			flag=1;
+		}else{
+			clearInterval(timer);
+			flag=0;
+			btn.innerText="Start";
+		}
+	}
+	document.onkeydown=function(ev){
+		var ev=ev||window.event;
+		if (ev.keyCode==32) {
+			if (flag==0) {
+			btn.innerText="Stop";
+			timer=setInterval(function(){
+				var x=Math.floor(Math.random()*25);
+				con.innerText=na[x];
+			},10)
+			flag=1;
+		}else{
+			clearInterval(timer);
+			flag=0;
+			btn.innerText="Start";
+		}
+		};
+
+	}
+		
+
+
+	
+	
+	</script>
+</body>
+</html>
